@@ -1,9 +1,9 @@
 # 
 Julia Matuszczak 243121
 grupa: środa 11:15
-język programowania: C++
 
 PROJEKT - kalkulator
+- język programowania C++
 
  Funkcje kalkulatora:
  - dodawanie
