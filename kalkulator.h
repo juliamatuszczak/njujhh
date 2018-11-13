@@ -4,7 +4,11 @@
 #include <QMainWindow>
 #include <QTextEdit> //biblioteka edytora tekstow
 #include <QString> //biblioteka do mozliwosci wyswietlania znakow (abc) lub cyfr (123)
+#include <iostream>
+#include <math.h>   //obliczanie f tryg
+#include <stdio.h>  //-,-
 
+using namespace std;
 
 namespace Ui {
 class Kalkulator;
@@ -19,8 +23,10 @@ public:
     ~Kalkulator();
 
     QTextEdit *tekst;   //obiekt klasy QTextEdit
+    QTextEdit *tekst2;   //obiekt klasy QTextEdit
     QString zlaczenie = ""; //zmienna pomocnicza do zlaczenia cyfr
     QString zlaczenie2 = "";
+    QString nic = "";
 
     QString siedem = "7";
     QString osiem = "8";
@@ -39,10 +45,12 @@ public:
     odejmowanie: operacja_arytmetyczna = 2
     mnozenie: operacja_arytmetyczna = 3
     dzielenie: operacja_arytmetyczna = 4
-
+    sin: operacja_arytmetyczna = 5
+    cos: operacja_arytmetyczna = 6
+    tg: operacja_arytmetyczna = 7
 */
 
-
+double param, result;
 
 
 private slots:
@@ -82,6 +90,16 @@ private slots:
     void on_usunjedenznak_clicked();
 
     void on_mnozenie_clicked();
+
+    void on_sinus_clicked();
+
+    void on_cosinus_clicked();
+
+    void on_tangens_clicked();
+
+    void on_potegowanie_clicked();
+
+    void on_pierwiastek_clicked();
 
 private:
     Ui::Kalkulator *ui;

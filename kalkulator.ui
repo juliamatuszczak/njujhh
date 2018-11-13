@@ -26,8 +26,8 @@
     <widget class="QPushButton" name="cyfra7">
      <property name="geometry">
       <rect>
-       <x>42</x>
-       <y>60</y>
+       <x>40</x>
+       <y>230</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -40,7 +40,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>60</y>
+       <y>230</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -53,7 +53,7 @@
      <property name="geometry">
       <rect>
        <x>200</x>
-       <y>60</y>
+       <y>230</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -66,7 +66,7 @@
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>130</y>
+       <y>300</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -79,7 +79,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>130</y>
+       <y>300</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -92,7 +92,7 @@
      <property name="geometry">
       <rect>
        <x>200</x>
-       <y>130</y>
+       <y>300</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -105,7 +105,7 @@
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>200</y>
+       <y>370</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -118,7 +118,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>200</y>
+       <y>370</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -131,7 +131,7 @@
      <property name="geometry">
       <rect>
        <x>200</x>
-       <y>200</y>
+       <y>370</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -143,8 +143,8 @@
     <widget class="QPushButton" name="dodaj">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>270</y>
+       <x>360</x>
+       <y>440</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -156,8 +156,8 @@
     <widget class="QPushButton" name="wynik">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>270</y>
+       <x>280</x>
+       <y>440</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -170,7 +170,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>270</y>
+       <y>440</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -183,7 +183,7 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>200</y>
+       <y>370</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -196,7 +196,7 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>130</y>
+       <y>300</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -209,7 +209,7 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>60</y>
+       <y>230</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -222,7 +222,7 @@
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>270</y>
+       <y>440</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -235,13 +235,104 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>270</y>
+       <y>370</y>
        <width>71</width>
        <height>61</height>
       </rect>
      </property>
      <property name="text">
       <string>&lt;-</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pierwiastek">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>300</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>√</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="potegowanie">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>230</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>()^n</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="kropka">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>440</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>.</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="sinus">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>160</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>sin</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cosinus">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>160</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>cos</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="tangens">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>160</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>tan</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="miejscezerowe">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>160</y>
+       <width>71</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>miejsce 0</string>
      </property>
     </widget>
    </widget>
