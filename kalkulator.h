@@ -2,25 +2,32 @@
 #define KALKULATOR_H
 
 #include <QMainWindow>
+/*
+Klasa ta dostarcza swój własny layout, do którego można dodać menu, zadokowane widgety,
+paski narzędzi i pasek statusu. QMainWindow ma centralną strefę,
+która może być zajmowana przez dowolny widget. W naszym przypadku będzie to pole edycji tekstu.
+*/
 #include <QTextEdit> //biblioteka edytora tekstow
 #include <QString> //biblioteka do mozliwosci wyswietlania znakow (abc) lub cyfr (123)
-#include <iostream>
-#include <math.h>   //obliczanie f tryg
-#include <stdio.h>  //-,-
+#include <math.h>   //obliczanie f tryg, poteg itd....
+#include <fstream>  //biblioteka do mozliwosci zapisania wyniku w pliku tekstowym
+#include <string>   //string uzywany przy zapisu do pliku, bo fstream plik przyjmuje tylko stringi a nie qstrinigi
+#include <QLabel>   //do mijsca zerowego !
 
-using namespace std;
+using namespace std;        //przestrzen nazw potrzebna do stringow, fstreamow
 
-namespace Ui {
+namespace Ui {      //ui odpowiada za tworzenie calego okna w ktorym pracujemy
 class Kalkulator;
 }
 
-class Kalkulator : public QMainWindow
+class Kalkulator : public QMainWindow       //klasa kalkulator dziedziczy po QMainWndow, dzieki temu mozemy uzywac
+//wszystkich metod zwiazanych z tworzeniem przyciskow, labeli itp
 {
     Q_OBJECT
 
 public:
-    explicit Kalkulator(QWidget *parent = 0);
-    ~Kalkulator();
+    explicit Kalkulator(QWidget *parent = 0);       //konstruktor klasy
+    ~Kalkulator();              //destruktor
 
     QTextEdit *tekst;   //obiekt klasy QTextEdit
     QTextEdit *tekst2;   //obiekt klasy QTextEdit
@@ -39,6 +46,7 @@ public:
     QString trzy = "3";
     QString zero = "0";
 
+
     int operacja_arytmetyczna = 0;  //dodawanie/odejmowanie/mnozenie/dzielenue....
 /*
     dodawanie : operacja_arytmetyczna = 1
@@ -48,10 +56,23 @@ public:
     sin: operacja_arytmetyczna = 5
     cos: operacja_arytmetyczna = 6
     tg: operacja_arytmetyczna = 7
+    potegowanie: operacja_arytmetyczna = 8
+    sqrt: operacja_arytmetyczna = 9
 */
+
+    QTextEdit *a;
+    QTextEdit *b;
+    QTextEdit *c;
+    QLabel *y;
+    QLabel *x2;
+    QLabel *x;
+
+    QLabel *do_kwadratu;
 
 double param, result;
 
+
+    QLabel *okno_wyliczenia_miejsc_zerowych;
 
 private slots:
     void on_cyfra7_clicked();
@@ -100,6 +121,14 @@ private slots:
     void on_potegowanie_clicked();
 
     void on_pierwiastek_clicked();
+
+    void on_kropka_clicked();
+
+    void on_miejscezerowe_clicked();
+
+    void on_wynik_2_clicked();
+
+    void on_cofnij_do_kalkulator_clicked();
 
 private:
     Ui::Kalkulator *ui;

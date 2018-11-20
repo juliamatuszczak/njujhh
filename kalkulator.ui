@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>575</width>
-    <height>648</height>
+    <width>907</width>
+    <height>596</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>529</width>
+    <height>596</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Kalkulator</string>
@@ -17,8 +29,8 @@
    <widget class="QWidget" name="ramka" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>10</y>
+      <x>40</x>
+      <y>-10</y>
       <width>511</width>
       <height>571</height>
      </rect>
@@ -144,7 +156,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>440</y>
+       <y>370</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -158,7 +170,7 @@
       <rect>
        <x>280</x>
        <y>440</y>
-       <width>71</width>
+       <width>151</width>
        <height>61</height>
       </rect>
      </property>
@@ -235,7 +247,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>370</y>
+       <y>300</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -248,7 +260,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>300</y>
+       <y>230</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -261,7 +273,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>230</y>
+       <y>160</y>
        <width>71</width>
        <height>61</height>
       </rect>
@@ -325,7 +337,7 @@
     <widget class="QPushButton" name="miejscezerowe">
      <property name="geometry">
       <rect>
-       <x>360</x>
+       <x>280</x>
        <y>160</y>
        <width>71</width>
        <height>61</height>
@@ -336,13 +348,49 @@
      </property>
     </widget>
    </widget>
+   <widget class="QWidget" name="ramka2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>110</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <widget class="QPushButton" name="wynik_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>=</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cofnij_do_kalkulator">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>10</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Wróć do kalkulatora &lt;-</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>575</width>
+     <width>907</width>
      <height>26</height>
     </rect>
    </property>

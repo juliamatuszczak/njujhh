@@ -15,9 +15,32 @@ Kalkulator::Kalkulator(QWidget *parent) :
     tekst2 = new QTextEdit(ui->ramka); // stworzenie edytora tekstu
     tekst2->setGeometry(QRect(35, 90, 400, 30));        //ustawianie polozenia edytora
 
+//do miejsc zerowych (obiekty dynamicznie tworzone)
+     a = new QTextEdit(ui->ramka2);
+     a->setGeometry(QRect(0, 0, 0, 0));        //ustawianie polozenia edytora
+
+     b = new QTextEdit(ui->ramka2);
+     b->setGeometry(QRect(0, 0, 0, 0));
+
+     c = new QTextEdit(ui->ramka2);
+     c->setGeometry(QRect(0, 0, 0, 0));
+
+     y = new QLabel(ui->ramka2);
+     x2 = new QLabel(ui->ramka2);
+     x = new QLabel(ui->ramka2);
+
+     do_kwadratu = new QLabel(ui->ramka2);
 
 
+     //okienko z wynikami dla miejsc zerowych funkcji kwadratowej
+     okno_wyliczenia_miejsc_zerowych = new QLabel(ui->ramka2); // stworzenie edytora tekstu
+     okno_wyliczenia_miejsc_zerowych->setGeometry(QRect(0, 0, 0, 0));        //ustawianie polozenia edytora
+
+     ui->wynik_2->setGeometry(QRect(0, 0, 0, 0));
+
+     ui->cofnij_do_kalkulator->setGeometry(QRect(0, 0, 0, 0));
 }
+
 
 Kalkulator::~Kalkulator()
 {
@@ -37,6 +60,7 @@ void Kalkulator::on_cyfra7_clicked() //nie zwraca nic
         zlaczenie2 = zlaczenie2 + siedem; // zlepienie 2 liczby
         tekst->setText(zlaczenie2);
     }
+
 
 }
 
@@ -196,119 +220,70 @@ void Kalkulator::on_dodaj_clicked()
 
 void Kalkulator::on_wynik_clicked()
 {
-    int wynik;
-    int na_int1 = zlaczenie.toInt();        //zamienienie string na int
-    int na_int2 = zlaczenie2.toInt();
+    double wynik;
+    double na_double1 = zlaczenie.toDouble();        //zamienienie string na double
+    double na_double2 = zlaczenie2.toDouble();
 
 
-    if (operacja_arytmetyczna == 1)
-    {
+        if (operacja_arytmetyczna == 1)
+        {
+            wynik = na_double1 + na_double2;
+        }
+        else if (operacja_arytmetyczna == 2)
+        {
+            wynik = na_double1 - na_double2;
+        }
+        else if (operacja_arytmetyczna == 3)
+        {
+            wynik = na_double1 * na_double2;
+        }
+        else if (operacja_arytmetyczna == 4)
+        {
+            wynik = na_double1 / na_double2;
+        }
+        else if (operacja_arytmetyczna == 5)
+        {
+            wynik = sin (na_double1*3.14/180);
+        }
+        else if (operacja_arytmetyczna == 6)
+        {
+            wynik = cos (na_double1*3.14/180);
+        }
+        else if (operacja_arytmetyczna == 7)
+        {
+            wynik = tan (na_double1);
+        }
+        else if (operacja_arytmetyczna == 8)
+        {
+            wynik = pow (na_double1, na_double2);
+        }
+        else if (operacja_arytmetyczna == 9)
+        {
+            wynik = sqrt (na_double1);      //pierwiastek
+        }
+        else
+        {
+            wynik = na_double1;
+        }
 
-        wynik = na_int1 + na_int2;
-        QString s = QString::number(wynik); //zamiana intow na stringi
-
-        tekst->setText(s); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-
-    }
-    else if (operacja_arytmetyczna == 2)
-    {
-
-        wynik = na_int1 - na_int2;
-        QString s = QString::number(wynik); //zamiana intow na stringi
-
-        tekst->setText(s); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-    }
-    else if (operacja_arytmetyczna == 3)
-    {
-
-        wynik = na_int1 * na_int2;
-        QString s = QString::number(wynik); //zamiana intow na stringi
-
-        tekst->setText(s); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-    }
-    else if (operacja_arytmetyczna == 4)
-    {
-        wynik = na_int1 / na_int2;
-        QString s = QString::number(wynik); //zamiana intow na stringi
-
-        tekst->setText(s); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-
-    }
-    else if (operacja_arytmetyczna == 5)
-    {
-        double na_double = zlaczenie.toDouble();
-
-        result = sin (na_double*3.14/180);
-        QString s = QString::number(result); //zamiana intow na stringi
-
-        tekst->setText(s + " stopni"); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-    }
-    else if (operacja_arytmetyczna == 6)
-    {
-        double na_double = zlaczenie.toDouble();
-
-        result = cos (na_double*3.14/180);
-        QString s = QString::number(result); //zamiana intow na stringi
-
-        tekst->setText(s + " stopni"); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-    }
-    else if (operacja_arytmetyczna == 7)
-    {
-        double na_double = zlaczenie.toDouble();
+    QString s = QString::number(wynik); //zamiana double na stringi
 
 
-        QString s = QString::number(result); //zamiana intow na stringi
+    tekst->setText(s); //wyswietlenie koncowego stringa ( wynik )
+    tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
 
-        tekst->setText(s + " stopni"); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-    }
-    else if (operacja_arytmetyczna == 9)
-    {
-        double na_double = zlaczenie.toDouble();
-
-        result = sqrt (na_double);
-        QString s = QString::number(result); //zamiana intow na stringi
-
-        tekst->setText(s); //wyswietlenie koncowego stringa ( wynik )
-        tekst2->setText(s); //wyswietlenie koncowego stringa ( wynik )
-
-        zlaczenie = s;
-    }
+    string s_plik_tekstowy = to_string(wynik);
+    fstream plik;
+    plik.open( "C:/Users/User/Documents/Kalkukator_test/wynik.txt", ios::out | ios::trunc );    //trunc odpowiada za
+    //czyszczenie zawartosci pliku przed zapisem
+    plik<<s_plik_tekstowy;      //zawartosc stringa zapisuje sie do pliktu txt (tekstowego)
+    plik.close();
+//koniec zapisu do pliku
 
 
-
-    //QString s = QString::number(wynik); //zamiana intow na stringi
-
-
-
-    wynik = 0;
-
-
+    zlaczenie = s;
     zlaczenie2 = "";
 }
-
-
-
 
 
 void Kalkulator::on_odejmowanie_clicked()
@@ -333,7 +308,7 @@ void Kalkulator::on_wyczysc_clicked()
      zlaczenie = "";
      zlaczenie2 = "";
     tekst->setText("");
-
+    tekst2->setText("");
 }
 
 void Kalkulator::on_usunjedenznak_clicked()
@@ -348,7 +323,6 @@ void Kalkulator::on_usunjedenznak_clicked()
     zlaczenie2 = zlaczenie2.left(zlaczenie2.length() - 1);
     tekst->setText(zlaczenie2);
     }
-
 }
 
 
@@ -376,4 +350,126 @@ void Kalkulator::on_potegowanie_clicked()
 void Kalkulator::on_pierwiastek_clicked()
 {
     operacja_arytmetyczna = 9;
+}
+
+void Kalkulator::on_kropka_clicked()
+{
+   if (operacja_arytmetyczna == 0)
+   {
+   zlaczenie = zlaczenie + ".";     //qstring, edytor tekstowy o to prosi
+   tekst->setText(zlaczenie);
+   }
+   else
+   {
+       zlaczenie2 = zlaczenie2 + ".";
+       tekst->setText(zlaczenie2);
+   }
+}
+
+void Kalkulator::on_miejscezerowe_clicked()
+{
+    ui->ramka->hide();  //hide czyli ukryj, czyli ramka znika z pola widzenia
+    ui->ramka2->show(); //pokaz ramke nr 2 ( ta od miejsca zerowego)
+
+    ui->ramka2->setGeometry(85, 50, 511, 571);
+    ui->wynik_2->setGeometry(QRect(30, 80, 300, 40));
+    ui->cofnij_do_kalkulator->setGeometry(QRect(30, 340, 300, 40));
+
+    y->setGeometry(QRect(35, 20, 50, 50));
+    y->setAutoFillBackground(true);
+    y->setStyleSheet("font: 18pt;");
+
+    y->setText("y = ");     //
+    y->raise();
+
+    a->setGeometry(QRect(85, 30, 35, 35));
+    a->setStyleSheet("font: 9pt;");
+
+    x2->setGeometry(QRect(125, 33, 60, 24));
+    x2->setAutoFillBackground(true);
+    x2->setStyleSheet("font: 18pt;");
+    x2->setText("x  + ");
+
+    do_kwadratu->setGeometry(QRect(145, 23, 13, 13));
+    do_kwadratu->setAutoFillBackground(true);
+    do_kwadratu->setStyleSheet("font: 10pt;");
+    do_kwadratu->setText("2");
+
+    b->setGeometry(QRect(190, 30, 35, 35));
+    b->setStyleSheet("font: 9pt;");
+
+    x->setGeometry(QRect(230, 20,50, 50));
+    x->setAutoFillBackground(true);
+    x->setStyleSheet("font: 18pt;");
+    x->setText("x + ");
+
+    c->setGeometry(QRect(285, 30, 35, 35));
+    c->setStyleSheet("font: 9pt;");
+}
+
+void Kalkulator::on_wynik_2_clicked()
+{
+    QString string_a = a->toPlainText();    //to co napisalam w qtextedit zamienia sie na string
+    QString string_b = b->toPlainText();
+    QString string_c = c->toPlainText();
+
+    double string_a_na_double = string_a.toDouble();
+    double string_b_na_double = string_b.toDouble();
+    double string_c_na_double = string_c.toDouble();
+
+    //liczenie delty
+    double delta;
+
+    delta = (string_b_na_double*string_b_na_double) - 4 * string_a_na_double * string_c_na_double;
+
+    //liczenie miejsc zerowych
+
+    double m_x0;
+    double m_x1;
+    double m_x2;
+
+        if (delta > 0)
+        {
+            m_x1 = ( -string_b_na_double - sqrt(delta) ) / (2*string_a_na_double);
+            m_x2 = ( -string_b_na_double + sqrt(delta) ) / (2*string_a_na_double);
+
+        }
+        else if(delta == 0)
+        {
+            m_x0 = (-string_b_na_double) / (2*string_a_na_double);
+        }
+        else
+        {
+            //brak miejsc zerowych
+        }
+
+
+    QString m_x0_na_string = QString::number(m_x0); //zamiana intow na stringi
+    QString m_x1_na_string = QString::number(m_x1); //zamiana intow na stringi
+    QString m_x2_na_string = QString::number(m_x2); //zamiana intow na stringi
+    QString delta_na_string = QString::number(delta); //zamiana intow na stringi
+
+    okno_wyliczenia_miejsc_zerowych->setGeometry(QRect(40, 150, 300, 150));
+    okno_wyliczenia_miejsc_zerowych->setAutoFillBackground(true);
+    okno_wyliczenia_miejsc_zerowych->setStyleSheet("font: 18pt;");
+
+    if (delta>0)
+    {
+       okno_wyliczenia_miejsc_zerowych->setText("Δ = " + delta_na_string + "\nx1 = " + m_x1_na_string
+                                                +"\nx2 = " + m_x2_na_string);
+    }
+    else if (delta == 0)
+    {
+        okno_wyliczenia_miejsc_zerowych->setText("Δ = " + delta_na_string + "\nx0 = " + m_x0_na_string);
+    }
+  else
+    {
+        okno_wyliczenia_miejsc_zerowych->setText("Brak miejsc zerowych.\nDelta<0");
+    }
+}
+
+void Kalkulator::on_cofnij_do_kalkulator_clicked()
+{
+    ui->ramka2->hide();
+    ui->ramka->show();
 }
